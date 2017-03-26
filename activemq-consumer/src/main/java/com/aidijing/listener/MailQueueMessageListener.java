@@ -43,7 +43,6 @@ public class MailQueueMessageListener implements SessionAwareMessageListener< Te
             System.err.println( "simpleMailMessage is null , end. " );
             return;
         }
-        System.err.println( "simpleMailMessage : " + simpleMailMessage );
         this.mailService.send( simpleMailMessage );
         System.err.println( "发送完毕" );
 

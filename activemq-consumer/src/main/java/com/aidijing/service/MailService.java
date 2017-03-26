@@ -1,6 +1,7 @@
 package com.aidijing.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
@@ -21,8 +22,12 @@ public class MailService {
     @Autowired
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
+    @Value( "${mail.smtp.from}" )
+    private String from;
 
     public void send ( SimpleMailMessage mailMessage ) {
+        mailMessage.setFrom( from );
+        System.err.println( "mailMessage : " + mailMessage );
         this.threadPoolTaskExecutor.execute( () -> {
             this.mailSender.send( mailMessage );
         } );
