@@ -23,7 +23,7 @@ public class MailServiceTest {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo( "yujunhao_8831@yahoo.com" );
         message.setSubject( "异步发送邮件" );
-        message.setFrom( "hello world !" );
+        message.setFrom( "yujunhao_8831@163.com" );
         message.setText( "hello world, by pi jing zhang ji" );
         mailService.send( message );
         System.err.println( "邮寄发送完毕." );
